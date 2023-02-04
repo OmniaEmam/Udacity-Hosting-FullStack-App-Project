@@ -10,3 +10,7 @@ export const sequelize = new Sequelize({
   dialect: "postgres",
   storage: ":memory:",
 });
+
+// const sequelize = new Sequelize(
+//   "postgres://postgres:myPassword@database-1.cwz33azlvlsu.us-east-1.rds.amazonaws.com:5432/postgres"
+// );
