@@ -15,35 +15,39 @@ jobs:
       - node/install:
           node-version: '14.15'         
       - checkout
-      # Use root level package.json to install dependencies in the frontend app
-      - run:
-          name: Install Front-End Dependencies
-          command: |
-            echo "NODE --version" 
-            echo $(node --version)
-            echo "NPM --version" 
-            echo $(npm --version)
-            npm run frontend:install
+
       # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
           command: |
-           echo "TODO: Install dependencies in the the backend API  "
-      # TODO: Lint the frontend
+            npm run api:install
+
+      # Use root level package.json to install dependencies in the frontend app
       - run:
-          name: Front-End Lint
+          name: Install Front-End Dependencies
           command: |
-            echo "TODO: Lint the frontend"
-      # TODO: Build the frontend app
-      - run:
-          name: Front-End Build
-          command: |
-            echo "TODO: Build the frontend app"
+            npm run frontend:install
+
       # TODO: Build the backend API      
       - run:
           name: API Build
           command: |
-            echo "TODO: Build the backend API"
+            npm run api:build
+      
+      # TODO: Lint the frontend
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
+
+      # TODO: Build the frontend app
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+
+      
+  
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -52,14 +56,18 @@ jobs:
     steps:
       - node/install:
           node-version: '14.15' 
-      - eb/setup
-      - aws-cli/setup
+      - aws-cli/install:
+          aws-cli-version: '2.9.19'
+      -python/install: 
+          python-version: '3.11'
+      - eb/install: 
+          eb-version: '3.20.3'
       - checkout
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-            echo "# TODO: Install, build, deploy in both apps"
+            npm run deploy
             
 workflows:
   udagram:
@@ -69,7 +77,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
           type: approval
           requires:
             - build

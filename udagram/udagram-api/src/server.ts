@@ -22,10 +22,10 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   await sequelize.addModels(V0_USER_MODELS);
   await sequelize.sync();
 
-  console.log("Database Connected");
+  console.log(`Database Connected : ${process.env.POSTGRES_DB} `);
 
   const app = express();
-  const port = 8080;
+  const port = process.env.PORT;
 
   app.use(bodyParser.json());
 
