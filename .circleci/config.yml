@@ -13,7 +13,7 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
+         node-version: '14.15'         
       - checkout
 
       # TODO: Install dependencies in the the backend API          
@@ -55,13 +55,13 @@ jobs:
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
-          node-version: '14.15' 
+         node-version: '14.15' 
       - aws-cli/install:
-          aws-cli-version: '2.9.19'
+         aws-cli-version: '2.9.19'
       -python/install: 
-          python-version: '3.11'
+         python-version: '3.11'
       - eb/install: 
-          eb-version: '3.20.3'
+         eb-version: '3.20.3'
       - checkout
       - run:
           name: Deploy App
