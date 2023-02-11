@@ -66,31 +66,31 @@ Provision the necessary AWS services needed for running the application:
 
    - environmental variables that needs to set in .env file.
 
-   ```
-     POSTGRES_USERNAME="postgres"
-     POSTGRES_PASSWORD="postgres"
-     POSTGRES_HOST="localhost"
-     POSTGRES_DB="postgres"
-     AWS_BUCKET="arn:aws:s3::: **your s3 bucket name** "
-     AWS_REGION="us-east-1"
-     AWS_PROFILE="default"
-     JWT_SECRET=" **yoursecrettoken** "
-     URL="http://localhost"
-     AWS_ACCESS_KEY_ID=" **yourAWS_ACCESS_KEY_ID** "
-     AWS_SECRET_ACCESS_KEY=" **yourAWS_SECRET_ACCESS_KEY** "
-     POSTGRES_PORT=5432
-     PORT=8080
-   ```
+    ```
+      POSTGRES_USERNAME="postgres"
+      POSTGRES_PASSWORD="postgres"
+      POSTGRES_HOST="localhost"
+      POSTGRES_DB="postgres"
+      AWS_BUCKET="arn:aws:s3::: **your s3 bucket name** "
+      AWS_REGION="us-east-1"
+      AWS_PROFILE="default"
+      JWT_SECRET=" **yoursecrettoken** "
+      URL="http://localhost"
+      AWS_ACCESS_KEY_ID=" **yourAWS_ACCESS_KEY_ID** "
+      AWS_SECRET_ACCESS_KEY=" **yourAWS_SECRET_ACCESS_KEY** "
+      POSTGRES_PORT=5432
+      PORT=8080
+    ```
 
 6. build server
 
    ```
-    api:build
+     api:build
    ```
 7. build frontend
 
    ```
-    frontend:build
+     frontend:build
    ```
 
 ## Testing
@@ -106,19 +106,26 @@ There are no Unit test on the back-end
 
 This project you can deploy it by: 
 1. `npm run deploy`
-**BUT BEFORE IT YOU SHOULS CHANGE**
-   ```
-    in udagram/udagram-frontend/bin/deploy.sh
-    "aws s3 cp --recursive ./www s3://**your s3 bucket name**/"
-   ```
-**AND**
-   ```
-    in udagram/udagram-api/bin/deploy.sh
-    eb init udagram-api --platform node.js --region us-east-1
-    eb use udagram-api-dev
-    eb deploy
 
-    eb setenv AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" POSTGRES_USERNAME="$POSTGRES_USERNAME" POSTGRES_PASSWORD="$POSTGRES_PASSWORD" POSTGRES_DB="$POSTGRES_DB" PORT="$PORT" POSTGRES_HOST="$POSTGRES_HOST" AWS_REGION="$AWS_REGION" AWS_PROFILE="$AWS_PROFILE" AWS_BUCKET="$AWS_BUCKET" URL="$URL" dbport="$dbport" JWT_SECRET="$JWT_SECRET" AWS_PROFILE="$AWS_PROFILE"
+- **BUT BEFORE IT YOU SHOULS CHANGE**
+   ```
+     in udagram/udagram-frontend/bin/deploy.sh
+     "aws s3 cp --recursive ./www s3://**your s3 bucket name**/"
+   ```
+
+- **AND**
+
+   ```
+     in udagram/udagram-api/bin/deploy.sh
+     eb init udagram-api --platform node.js --region us-east-1
+     eb use udagram-api-dev
+     eb deploy
+
+     eb setenv AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
+     AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" POSTGRES_USERNAME="$POSTGRES_USERNAME" POSTGRES_PASSWORD="$POSTGRES_PASSWORD"
+     POSTGRES_DB="$POSTGRES_DB" PORT="$PORT" POSTGRES_HOST="$POSTGRES_HOST" AWS_REGION="$AWS_REGION" 
+     AWS_PROFILE="$AWS_PROFILE" AWS_BUCKET="$AWS_BUCKET" URL="$URL" dbport="$dbport" JWT_SECRET="$JWT_SECRET" 
+     AWS_PROFILE="$AWS_PROFILE"
  
    ```
 
