@@ -1,6 +1,6 @@
 # Hosting a Full-Stack Application
 
-### **This Project build by : .**
+### **This Project build by :**
 - [Node](https://nodejs.org) - Javascript Runtime
 - [TypeScript](https://www.typescriptlang.org/) -  Syntactic superset of JavaScript which adds static typing
 - [Angular](https://angular.io/) - Single Page Application Framework
@@ -45,11 +45,12 @@ Provision the necessary AWS services needed for running the application:
 1. Download or clone project to your PC
 
 2. setup dependenscies
+   - Download all pervious by :
 
-   ```bash
-   npm run api:install
-   npm run frontend:install
-   ```
+     ```bash
+     npm run api:install
+     npm run frontend:install
+     ```
 
 3. setup databases
 
@@ -73,10 +74,10 @@ Provision the necessary AWS services needed for running the application:
      AWS_BUCKET="arn:aws:s3::: **your s3 bucket name** "
      AWS_REGION="us-east-1"
      AWS_PROFILE="default"
-     JWT_SECRET="**yoursecrettoken**"
+     JWT_SECRET=" **yoursecrettoken** "
      URL="http://localhost"
-     AWS_ACCESS_KEY_ID="**yourAWS_ACCESS_KEY_ID**"
-     AWS_SECRET_ACCESS_KEY="**yourAWS_SECRET_ACCESS_KEY**"
+     AWS_ACCESS_KEY_ID=" **yourAWS_ACCESS_KEY_ID** "
+     AWS_SECRET_ACCESS_KEY=" **yourAWS_SECRET_ACCESS_KEY** "
      POSTGRES_PORT=5432
      PORT=8080
    ```
@@ -86,30 +87,41 @@ Provision the necessary AWS services needed for running the application:
    ```
     api:build
    ```
-
 7. build frontend
 
-  ```
-  frontend:build
-  ```
+   ```
+    frontend:build
+   ```
 
 ## Testing
 
-This project contains two different test suite: unit tests and End-To-End tests(e2e). Follow these steps to run the tests.
+This project contains two different test you can run it by 
 
-1. `cd starter/udagram-frontend`
-1. `npm run test`
-1. `npm run e2e`
+1. `npm run frontend:test`
+2. `npm run api:test`
 
 There are no Unit test on the back-end
 
-### Unit Tests:
+### Deploying
 
-Unit tests are using the Jasmine Framework.
+This project you can deploy it by: 
+1. `npm run deploy`
+**BUT BEFORE IT YOU SHOULS CHANGE**
+   ```
+    in udagram/udagram-frontend/bin/deploy.sh
+    "aws s3 cp --recursive ./www s3://**your s3 bucket name**/"
+   ```
+**AND**
+   ```
+    in udagram/udagram-api/bin/deploy.sh
+    eb init udagram-api --platform node.js --region us-east-1
+    eb use udagram-api-dev
+    eb deploy
 
-### End to End Tests:
+    eb setenv AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" AWS_DEFAULT_REGION="$AWS_DEFAULT_REGION" POSTGRES_USERNAME="$POSTGRES_USERNAME" POSTGRES_PASSWORD="$POSTGRES_PASSWORD" POSTGRES_DB="$POSTGRES_DB" PORT="$PORT" POSTGRES_HOST="$POSTGRES_HOST" AWS_REGION="$AWS_REGION" AWS_PROFILE="$AWS_PROFILE" AWS_BUCKET="$AWS_BUCKET" URL="$URL" dbport="$dbport" JWT_SECRET="$JWT_SECRET" AWS_PROFILE="$AWS_PROFILE"
+ 
+   ```
 
-The e2e tests are using Protractor and Jasmine.
 
 ## License
 
