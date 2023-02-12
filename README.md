@@ -1,5 +1,12 @@
 # Hosting a Full-Stack Application
 
+# Udagram
+This application is a fairly simple application that includes all the main components of a Full-Stack web application.
+It builds by a database component using Postgres and RDS in AWS and frontend using Angular, backend using Node.js and Express.
+The project is uploaded and deployed via AWS and CircleCi
+- **The link of deploying** : ```http://o-udagram.s3-website-us-east-1.amazonaws.com```
+
+
 ### **This Project build by :**
 - [Node](https://nodejs.org) - Javascript Runtime
 - [TypeScript](https://www.typescriptlang.org/) -  Syntactic superset of JavaScript which adds static typing
@@ -10,12 +17,6 @@
 - [AWS](https://aws.amazon.com/) - Amazon Web Services
 - [Circleci](https://circleci.com/) - continuous integration and continuous delivery platform that can be used to implement DevOps practices
 ---
-
-
-# Udagram
-This application is a fairly simple application that includes all the main components of a Full-Stack web application.
-It builds by a database component using Postgres and RDS in AWS and frontend using Angular, backend using Node.js and Express.
-The project is uploaded and deployed via AWS and CircleCi
 
 
 ### Dependencies
