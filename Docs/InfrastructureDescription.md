@@ -6,29 +6,6 @@
 ### Now we discuss in Architecture Diagram
 ![ARC](./Diagrams/ArchitectureDiagram.png)
 
-
-## **RDS FIRST**
----
-### 1. Go to RDS in AWS and Create database
-![ARC](./ScreenShots/rds/rds1.png)
-
----
-### 2.Create database with this settings 
-![ARC](./ScreenShots/rds/rds2-Creation.png)
-
----
-### 3.Wait it be available
-![ARC](./ScreenShots/rds/rds3-Available.png)
-![ARC](./ScreenShots/rds/rds4-Available.png)
-
----
-### 4.Go to Security Group
-![ARC](./ScreenShots/rds/rds5-Security%20Groups.png)
-
-### 5.And Edit inbound rules to 0.0.0.0/0 to be public
-![ARC](./ScreenShots/rds/rds6-Makeitpublic.png)
-
-
 ## **FIRST : RDS**
 ---
 ### 1. Go to RDS in AWS and Create database
