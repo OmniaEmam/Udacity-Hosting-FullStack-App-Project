@@ -1,6 +1,6 @@
 # Infrastructure Description
 
-## **Okay in this file we will translate the diagram into actual steps**
+## **Okay in this file we will translate the ArchitectureDiagram diagram into actual steps**
 
 ---
 ### Now we discuss in Architecture Diagram
@@ -61,9 +61,3 @@
 ### 3.Open endpoint link to check that website is working
 ![ARC](./ScreenShots/S3/S3-2.png)
 ![ARC](./ScreenShots/S3/S3-4.png)
-
----
-### 4.Then after deploy server solve all errors that will face you and check logs after deploy
-![ARC](./ScreenShots/ElasticBeanstalk/ElasticBeanstalk-5-After-deploy.png)
-![ARC](./ScreenShots/ElasticBeanstalk/ElasticBeanstalk-6-After-deploy.png)
-
